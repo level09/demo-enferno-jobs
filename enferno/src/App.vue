@@ -1,27 +1,25 @@
 <template>
-
     <div id="app">
-        <Welcome logo="/static/img/enferno.svg" />
+        <Nav></Nav>
+        <Hero></Hero>
+        <Jobs></Jobs>
+        <Footer></Footer>
     </div>
-
-
 </template>
 
 <script>
-import 'modern-normalize/modern-normalize.css';
-import Welcome from './components/Welcome'
-
+    import Nav from './components/Nav'
+    import Jobs from './components/Jobs';
+    import Hero from './components/Hero';
+    import Footer from './components/Footer'
     export default {
         name: 'app',
-
-        data: () => ({
-
-        }),
+        data: () => ({}),
         components: {
-            Welcome
-
-
-
+            Nav,
+            Hero,
+            Jobs,
+            Footer
         }
     }
 </script>

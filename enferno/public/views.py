@@ -1,6 +1,7 @@
 from flask import Flask, request, abort, Response, redirect, url_for, flash, Blueprint, send_from_directory
 from flask.templating import render_template
 from flask_security.decorators import roles_required, login_required
+import requests
 
 bp_public = Blueprint('public',__name__, static_folder='../static')
 @bp_public.after_request
@@ -12,6 +13,11 @@ def add_header(response):
 def index():
     return render_template('index.html')
 
+
+@bp_public.route('/api')
+def api():
+    feed = requests.get('https://remoteok.io/api').content
+    return Response(feed, content_type='application/json'),200
 
 @bp_public.route('/robots.txt')
 def static_from_root():
